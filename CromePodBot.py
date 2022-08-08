@@ -6,11 +6,9 @@ import requests
 from urllib.parse import urlparse, unquote
 import os
 import threading
-import time
 
 DOWNLOAD_PATH = r'podcasts'
 CHUNK = 2 ** 15
-n = 1
 
 
 def normalize(filename):
@@ -35,13 +33,6 @@ def is_url(url):
         return False
 
 
-# create webdriver object
-driver = webdriver.Chrome()
-
-# open the 'podcastim.org.il' web site
-driver.get('https://podcastim.org.il/%d7%9b%d7%9c-%d7%94%d7%aa%d7%97%d7%95%d7%9e%d7%99%d7%9d/')
-
-
 class App(tk.Tk):
     """
     The main app class, define the tkinter window
@@ -50,6 +41,11 @@ class App(tk.Tk):
 
     def __init__(self):
         super().__init__()
+        # create webdriver object
+        self.driver = webdriver.Firefox()
+        # open the 'podcastim.org.il' web site
+        self.driver.get('https://podcastim.org.il/%d7%9b%d7%9c-%d7%94%d7%aa%d7%97%d7%95%d7%9e%d7%99%d7%9d/')
+
         # setup
         self.geometry('300x120')
         self.title('Check')
@@ -64,7 +60,7 @@ class App(tk.Tk):
         self.pro = ttk.Label(self, text='')
         self.pro.pack()
 
-    def download(self, url, pod_n=None, name=None):
+    def set_download(self, url, pod_n=None, name=None):
         """
         download the podcast and save him with his name in a file be crated
         :param url: url for download
@@ -77,7 +73,6 @@ class App(tk.Tk):
         """
         self.by['text'] = f'{threading.active_count() - 1} files by downloading'  # set processing label
         p_url = urlparse(url)  # for name
-        time_out = 8
         # set file name
         filename = normalize(os.path.split(p_url.path)[-1])
         if name:
@@ -91,6 +86,17 @@ class App(tk.Tk):
             filepath = os.path.join(os.path.join(DOWNLOAD_PATH, pod_n), filename)
 
         # downloading...
+        self.download(filename, filepath, url)
+
+    def download(self, filename, filepath, url):
+        """
+        the download function
+        :param filename: the file name to save
+        :param filepath: the file path to save
+        :param url: the url to download
+        :return: None
+        """
+        time_out = 8
         try:
             with requests.get(url, stream=True, timeout=time_out) as down:
                 down.raise_for_status()
@@ -114,13 +120,13 @@ class App(tk.Tk):
         :return: None
         """
         # get podcast file
-        podcast = driver.find_elements(By.CLASS_NAME, r'ppshare__download')[0]
+        podcast = self.driver.find_elements(By.CLASS_NAME, r'ppshare__download')[0]
         url = podcast.get_attribute('download')
         # get podcast name
-        name = driver.find_element(By.CLASS_NAME, r'ppjs__episode-title')
+        name = self.driver.find_element(By.CLASS_NAME, r'ppjs__episode-title')
         # download the podcast in a different thread
-        threading.Thread(target=self.download,
-                         args=(url, unquote(urlparse(driver.current_url).path[1:-1]), name.text,)).start()
+        threading.Thread(target=self.set_download,
+                         args=(url, unquote(urlparse(self.driver.current_url).path[1:-1]), name.text,)).start()
 
 
 win = App()
