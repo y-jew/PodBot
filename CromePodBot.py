@@ -42,10 +42,9 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         # create webdriver object
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Crome()
         # open the 'podcastim.org.il' web site
         self.driver.get('https://podcastim.org.il/%d7%9b%d7%9c-%d7%94%d7%aa%d7%97%d7%95%d7%9e%d7%99%d7%9d/')
-
         # setup
         self.geometry('300x120')
         self.title('Check')
