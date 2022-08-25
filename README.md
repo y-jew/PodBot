@@ -16,3 +16,5 @@ and
 `pip install requests`
 
 You can also download selenium and requests from [PyPi](https://pypi.org/project/selenium/), there are also the browser drivers there.
+
+And only then can you run the main script.
