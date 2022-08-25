@@ -1,13 +1,16 @@
 # PodBot
-A bot for downloading podcasts from the Israeli podcast site.
-the bot use selenium, so you need a web driver to run him.
-
-The bot was tested on Firefox, but should also work on Chrome.
-The appropriate webdriver must be downloaded from [here](https://www.selenium.dev/downloads/)
+A bot for downloading podcasts from the [Israeli podcast site](https://podcastim.org.il/).
 
 ## setup
-The bot uses several Python packages.
-If you want to use it you will need to install them first:
+The bot use selenium, so you need a web driver to run him.
+The appropriate webdriver must be downloaded from [here](https://www.selenium.dev/downloads/).
+
+The bot was tested on Firefox, but should also work on Chrome. Of course you need to download the appropriate driver for the browser you are using.
+
+NOTE: The web driver have to be locaded in the main folder (with the script). And the script won't be able to run without it.
+
+The bot also uses several Python packages.
+To use it, you will need to install them first:
 
 `pip install selenium`
 
@@ -15,6 +18,8 @@ and
 
 `pip install requests`
 
-You can also download selenium and requests from [PyPi](https://pypi.org/project/selenium/), there are also the browser drivers there.
+in the command line.
 
-And only then can you run the main script.
+You can also download selenium and requests from [PyPi](https://pypi.org/project/selenium/), there are also the webdrivers for the browsers.
+
+And only then can you run the script.
