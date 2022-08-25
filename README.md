@@ -2,6 +2,7 @@
 A bot for downloading podcasts from the [Israeli podcast site](https://podcastim.org.il/).
 
 ## setup
+### webdrivers
 The bot use selenium, so you need a web driver to run him.
 The appropriate webdriver must be downloaded from [here](https://www.selenium.dev/downloads/).
 
@@ -9,6 +10,7 @@ The bot was tested on Firefox, but should also work on Chrome. Of course you nee
 
 NOTE: The web driver have to be locaded in the main folder (with the script). And the script won't be able to run without it.
 
+### Python packages
 The bot also uses several Python packages.
 To use it, you will need to install them first:
 
