@@ -1,5 +1,7 @@
 # PodBot
-A bot for downloading podcasts from the [Israeli podcast site](https://podcastim.org.il/).
+A bot for downloading podcasts from the [Israeli podcast website](https://podcastim.org.il/).
+
+The bot is used for easy and orderly downloading from the site.
 
 ## setup
 ### webdrivers
