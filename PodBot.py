@@ -123,8 +123,11 @@ class App(tk.Tk):
         :return: None
         """
         # get podcast file
-        podcast = self.driver.find_elements(By.CLASS_NAME, r'ppshare__download')[0]
-        url = podcast.get_attribute('download')
+        try:
+            podcast = self.driver.find_elements(By.CLASS_NAME, r'ppshare__download')[0]
+        except IndexError:
+            podcast = self.driver.find_element(By.CLASS_NAME, r'ppshare__download')
+        url = podcast.get_attribute('href')
         # get podcast name
         name = self.driver.find_element(By.CLASS_NAME, r'ppjs__episode-title')
         # download the podcast in a different thread
