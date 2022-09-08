@@ -7,7 +7,7 @@ The bot is used for easy and orderly downloading from the site.
 ### webdrivers
 The bot use selenium, so you need a web driver to run him.
 The appropriate webdriver must be downloaded from [here](https://www.selenium.dev/downloads/).
-You can also download the webdriver directly from here, but it may not be up to date.
+(You can also download the webdriver directly from this site, but it may not be up to date).
 
 The bot was tested on Firefox, but should also work on Chrome. Of course you need to download the appropriate driver for the browser you are using.
 
