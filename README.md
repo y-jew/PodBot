@@ -22,6 +22,8 @@ To use it, you will need to install them first:
 and
 
 `pip install requests`
+## Errors
+If a problem is found, I'd love for you to report it [here](https://github.com/y-jew/PodBot/issues).
 
 in the command line.
 
