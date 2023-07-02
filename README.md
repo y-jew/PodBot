@@ -22,11 +22,11 @@ To use it, you will need to install them first:
 and
 
 `pip install requests`
-## Errors
-If a problem is found, I'd love for you to report it [here](https://github.com/y-jew/PodBot/issues).
 
 in the command line.
 
 You can also download selenium and requests from [PyPi](https://pypi.org/project/selenium/), there are also the webdrivers for the browsers.
 
 And only then can you run the script.
+## Errors
+If a problem is found, I'd love for you to report it [here](https://github.com/y-jew/PodBot/issues).
